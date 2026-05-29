@@ -1,8 +1,8 @@
 package service
 
 import (
-	pb "EventSpace/grpc/gen"
 	"context"
+	pb "email-service/pkg/emailpb"
 	"log"
 
 	"gopkg.in/gomail.v2"

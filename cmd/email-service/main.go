@@ -1,9 +1,9 @@
 package main
 
 import (
-	pb "EventSpace/grpc/gen"
-	"EventSpace/internal/email"
-	"EventSpace/internal/email/service"
+	"email-service/internal"
+	"email-service/internal/service"
+	pb "email-service/pkg/emailpb"
 	"log"
 	"net"
 	"os"
@@ -14,8 +14,8 @@ import (
 	"gopkg.in/gomail.v2"
 )
 
-func LoadConfig() (*email.Config, error) {
-	doc, err := os.ReadFile("config/email-service/config.toml")
+func LoadConfig() (*internal.Config, error) {
+	doc, err := os.ReadFile("config/config.toml")
 
 	if err != nil {
 		return nil, err
@@ -23,7 +23,7 @@ func LoadConfig() (*email.Config, error) {
 
 	expanded := os.ExpandEnv(string(doc))
 
-	var config email.Config
+	var config internal.Config
 	err = toml.Unmarshal([]byte(expanded), &config)
 
 	if err != nil {
