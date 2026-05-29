@@ -1,9 +1,9 @@
 package main
 
 import (
-	"email-service/internal"
-	"email-service/internal/service"
-	pb "email-service/pkg/emailpb"
+	"github.com/space-event/email-service/internal"
+	"github.com/space-event/email-service/internal/service"
+	pb "github.com/space-event/email-service/pkg/emailpb"
 	"log"
 	"net"
 	"os"

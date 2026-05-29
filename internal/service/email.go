@@ -2,7 +2,7 @@ package service
 
 import (
 	"context"
-	pb "email-service/pkg/emailpb"
+	pb "github.com/space-event/email-service/pkg/emailpb"
 	"log"
 
 	"gopkg.in/gomail.v2"
