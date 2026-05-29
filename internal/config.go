@@ -1,4 +1,4 @@
-package email
+package internal
 
 type Config struct {
 	Addr string     `toml:"addr"`
