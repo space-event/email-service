@@ -1,7 +1,9 @@
 addr = "${ADDR}"
+loglevel = "${LOG_LEVEL}"
 [smtp]
 host_smtp = "${SMTP_HOST}"
 port_smtp = "${SMTP_PORT}"
 email_smtp = "${SMTP_EMAIL}"
 password_smtp = "${SMTP_PASSWORD}"
+
 

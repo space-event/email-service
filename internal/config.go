@@ -1,8 +1,9 @@
 package internal
 
 type Config struct {
-	Addr string     `toml:"addr"`
-	Smtp SMTPConfig `toml:"smtp"`
+	Addr     string     `toml:"addr"`
+	Smtp     SMTPConfig `toml:"smtp"`
+	LogLevel string     `toml:"loglevel"`
 }
 
 type SMTPConfig struct {
