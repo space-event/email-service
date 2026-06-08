@@ -84,10 +84,6 @@ func validRequest(request *pb.EmailRequest) error {
 		return status.Error(codes.InvalidArgument, "request is nil")
 	}
 
-	if request.EmailTarget == "" {
-		return status.Error(codes.InvalidArgument, "email target is required")
-	}
-
 	if request.MessageText == "" {
 		return status.Error(codes.InvalidArgument, "message is required")
 	}
