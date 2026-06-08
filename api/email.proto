@@ -4,18 +4,34 @@ package email;
 
 option go_package = "./pkg/emailpb/;email";
 
-service EmailService {
-  rpc Send(EmailRequest) returns (EmailResponse);
-}
-
 message EmailRequest {
+
+  // Target email address (required)
+  // Example: "user@example.com"
   string emailTarget = 1;
+
+  // Email body content (required)
+  // Supports both plain text and HTML depending on contentType field
   string messageText = 2;
+
+  // Email subject line
+  // Should be concise and descriptive
   string subject = 3;
+
+  // Content type of the email body (required)
+  // Allowed values: "text/plain" or "text/html"
   string contentType = 4;
 }
 
 message EmailResponse {
+  // Indicates whether the email was sent successfully
+  // true = email was queued/sent, false = failed
   bool success = 1;
+}
+
+service EmailService {
+  // Send an email to the specified recipient
+  // Returns EmailResponse with success status or error
+  rpc Send(EmailRequest) returns (EmailResponse);
 }
 
