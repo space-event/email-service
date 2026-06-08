@@ -6,7 +6,7 @@ COPY go.mod .
 
 RUN go mod download
 
-COPY .. .
+COPY . .
 
 RUN go build -o email-service ./cmd/email-service/main.go
 
