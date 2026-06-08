@@ -47,7 +47,7 @@ func setupTestServer(t *testing.T) (*grpc.ClientConn, pb.EmailServiceClient, fun
 		}
 	}()
 
-	conn, err := grpc.DialContext(context.Background(), "bufnet",
+	conn, err := grpc.NewClient("passthrough:///bufnet",
 		grpc.WithContextDialer(func(ctx context.Context, s string) (net.Conn, error) {
 			return listner.Dial()
 		}),
@@ -59,9 +59,9 @@ func setupTestServer(t *testing.T) (*grpc.ClientConn, pb.EmailServiceClient, fun
 	clientR := pb.NewEmailServiceClient(conn)
 
 	cleanup := func() {
-		conn.Close()
+		err = conn.Close()
 		grpcServer.Stop()
-		smtpServer.Stop()
+		err = smtpServer.Stop()
 	}
 
 	return conn, clientR, cleanup
